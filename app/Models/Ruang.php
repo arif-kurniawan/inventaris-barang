@@ -10,4 +10,8 @@ class Ruang extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function barang(){
+        return $this->hasMany(Barang::class);
+    }
 }

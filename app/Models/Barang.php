@@ -10,4 +10,8 @@ class Barang extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function ruang(){
+        return $this->belongsTo(Ruang::class);
+    }
 }

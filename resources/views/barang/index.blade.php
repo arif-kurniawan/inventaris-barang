@@ -1,6 +1,6 @@
 @extends('layouts.content')
 @section('content')
-    <h1>Data Produk</h1>
+    <h1>Data Barang</h1>
     <a href="{{ route('barang.create') }}" class="btn btn-success btn-icon-split">
         <span class="icon text-white-50">
             <i class="fas fa-check"></i>
@@ -27,12 +27,12 @@
             <tr>
                 <td align="center" >{{ $loop->iteration }}</td>
                 <td>{{ $barangs->nama_barang }}</td>
-                <td align="center" >{{ $barangs->Stok }}</td>
+                <td align="center" >{{ $barangs->stok }}</td>
                 <td align="center" >{{ 'Rp.'.$barangs->harga }}</td>
                 <td align="center" >{{ $barangs->satuan }}</td>
                 <td align="center" >{{ $barangs->kondisi }}</td>
                 <td align="center" >{{ $barangs->ruang_id }}</td>
-                <td><a href="{{ route('products.show', $produk->id) }}"><button>Show</button></a></td>
+                <td><a href="{{ route('barang.show', $barangs->id) }}"><button>Show</button></a></td>
             </tr>
             @endforeach
         </tbody>

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('gedung_id')->constrained();
             $table->integer('panjang');
             $table->integer('lebar');
-            $table->integer('keterangan');
+            $table->string('keterangan');
             $table->timestamps();
         });
     }

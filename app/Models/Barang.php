@@ -14,4 +14,8 @@ class Barang extends Model
     public function ruang(){
         return $this->belongsTo(Ruang::class);
     }
+
+    public function jenisbarang(){
+        return $this->belongsTo(JenisBarang::class);
+    }
 }

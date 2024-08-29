@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\JenisBarangController;
 use App\Http\Controllers\RuangController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,7 +25,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//Route::resource('barang', BarangController::class);
+Route::resource('jenisbarang', JenisBarangController::class);
 Route::resource('ruang', RuangController::class);
 
 Route::get('barang',[BarangController::class, 'index'])->name('barang.index');

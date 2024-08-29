@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
+use App\Models\JenisBarang;
 use App\Models\Ruang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -24,7 +25,8 @@ class BarangController extends Controller
     public function create()
     {
         $ruang = Ruang::all();
-        return view('barang.create', compact('ruang'));
+        $jenisbarang = JenisBarang::all();
+        return view('barang.create', compact('ruang', 'jenisbarang'));
     }
 
     /**

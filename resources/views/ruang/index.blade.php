@@ -5,7 +5,7 @@
         <span class="icon text-white-50">
             <i class="fas fa-plus-circle"></i>
         </span>
-        <span class="text">Tambah Ruang</span>
+        <span class="text">Tambah Ruang Kelas</span>
     </a>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -43,4 +43,4 @@
             @endforeach
         </tbody>
     </table>
-@endsection  
+@endsection

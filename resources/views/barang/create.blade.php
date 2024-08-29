@@ -7,10 +7,6 @@
         <label for="">Nama Barang</label>
         <input type="text" name="nama_barang" class="form-control">
       </div>
-      <div class="form-group col-md-2">
-        <label for="">Stok</label>
-        <input type="number" name="stok" class="form-control">
-      </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">

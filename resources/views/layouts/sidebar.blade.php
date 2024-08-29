@@ -30,16 +30,16 @@
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item @if (Route::is('jenisbarang.*')) active @endif">
         <a class="nav-link" href="{{ route('jenisbarang.index') }}">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fab fa-intercom"></i>
             <span>Jenis Barang</span>
         </a>
     <li class="nav-item @if (Route::is('barang.*')) active @endif">
         <a class="nav-link" href="{{ route('barang.index') }}">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-warehouse"></i>
             <span>Barang</span>
         </a>
         <a class="nav-link" href="{{ route('ruang.index') }}">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-person-booth"></i>
             <span>Ruang</span>
         </a>
     </li>

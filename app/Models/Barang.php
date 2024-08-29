@@ -11,11 +11,12 @@ class Barang extends Model
 
     protected $guarded = [];
 
+
     public function ruang(){
         return $this->belongsTo(Ruang::class);
     }
 
     public function jenisbarang(){
-        return $this->belongsTo(JenisBarang::class);
+        return $this->belongsTo(JenisBarang::class, 'jenis_barang_id', 'id');
     }
 }

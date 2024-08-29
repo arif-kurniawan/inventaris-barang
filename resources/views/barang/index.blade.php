@@ -29,9 +29,9 @@
             @foreach ($barang as $barangs )
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $barangs->jenisbarang->nama_barang }}</td>
-                <td>{{ $barangs->kodebarang }}</td>
-                <td>{{ 'Rp.'.$barangs->harga }}</td>
+                <td>{{ $barangs->jenisbarang->jenis_barang }}</td>
+                <td>{{ $barangs->kode_barang }}</td>
+                <td>{{ 'Rp.'.$barangs->jenisbarang->harga }}</td>
                 <td>{{ $barangs->kondisi }}</td>
                 <td>{{ $barangs->ruang->nama_ruang }}</td>
                 <td style="width:5px" >

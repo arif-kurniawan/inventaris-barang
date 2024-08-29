@@ -29,6 +29,6 @@
               </div>
             </div>
       </div>
-      <button type="submit" class="btn btn-success">ADD_Barang</button>
+      <button type="submit" class="btn btn-success">Edit Jenis Barang</button>
   </form>
 @endsection

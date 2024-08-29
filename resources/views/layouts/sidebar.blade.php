@@ -33,6 +33,10 @@
             <i class="fas fa-fw fa-cog"></i>
             <span>Barang</span>
         </a>
+        <a class="nav-link" href="{{ route('ruang.index') }}">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Ruang</span>
+        </a>
     </li>
 
     <!-- Nav Item - Utilities Collapse Menu -->

@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home') }}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -24,7 +24,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Interface
+        Menu
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
@@ -40,10 +40,16 @@
         </a>
         <a class="nav-link" href="{{ route('ruang.index') }}">
             <i class="fas fa-person-booth"></i>
+            <i class="fas fa-cubes"></i>
+            <span>Barang</span>
+        </a>
+    </li>
+    <li class="nav-item @if (Route::is('ruang.*')) active @endif">
+    <a class="nav-link" href="{{ route('ruang.index') }}">
+            <i class="far fa-building"></i>
             <span>Ruang</span>
         </a>
     </li>
-
     <!-- Nav Item - Utilities Collapse Menu -->
     {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"

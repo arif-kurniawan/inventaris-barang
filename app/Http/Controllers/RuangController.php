@@ -56,24 +56,27 @@ class RuangController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Ruang $ruang)
     {
-        
+        return view('ruang.edit', compact('ruang'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Ruang $ruang)
     {
-        //
+        $data = $request->all();
+        $ruang->update($data);
+        return redirect()->route('ruang.index')->with('success', 'Ruang berhasil diubah');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Ruang $ruang)
     {
-        //
+        $ruang->delete();
+        return redirect()->route('ruang.index')->with('success', 'Ruang berhasil dihapus');
     }
 }

@@ -33,12 +33,8 @@
             <i class="fab fa-intercom"></i>
             <span>Jenis Barang</span>
         </a>
-    <li class="nav-item @if (Route::is('barang.*')) active @endif">
-        <a class="nav-link" href="{{ route('barang.index') }}">
-            <i class="fas fa-warehouse"></i>
-            <span>Barang</span>
         </a>
-        <a class="nav-link" href="{{ route('ruang.index') }}">
+        <a class="nav-link" href="{{ route('barang.index') }}">
             <i class="fas fa-person-booth"></i>
             <i class="fas fa-cubes"></i>
             <span>Barang</span>

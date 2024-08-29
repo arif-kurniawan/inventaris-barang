@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('harga');
             $table->string('satuan');
             $table->string('gambar');
-            $table->string('kondisi');
+            $table->enum('kondisi', ['Baik', 'Rusak Ringan', 'Rusak Berat']);
             $table->foreignId('ruang_id')->constrained();
             $table->timestamps();
         });

@@ -1,7 +1,7 @@
 @extends('layouts.content')
 @section('content')
     <h1>Data Barang</h1>
-    <a href="{{ route('barang.create') }}" class="btn btn-success btn-icon-split">
+    <a href="{{ route('barang.create') }}" class="btn btn-success btn-icon-split mb-4">
         <span class="icon text-white-50">
             <i class="fas fa-plus-circle"></i>
         </span>
@@ -35,7 +35,7 @@
                 <td>{{ 'Rp.'.$barangs->harga }}</td>
                 <td>{{ $barangs->satuan }}</td>
                 <td>{{ $barangs->kondisi }}</td>
-                <td>{{ $barangs->ruang_id }}</td>
+                <td>{{ $barangs->ruang->nama_ruang }}</td>
                 <td style="width:5px" >
                     <a href="{{ route('barang.show', $barangs->id) }}" class="btn btn-primary btn-circle btn-sm">
                         <i class="fas fa-info-circle"></i>

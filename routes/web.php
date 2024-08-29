@@ -23,4 +23,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('barang', BarangController::class);
+//Route::resource('barang', BarangController::class);
+
+Route::get('barang',[BarangController::class, 'index'])->name('barang.index');
+Route::post('barang', [BarangController::class, 'store'])->name('barang.store');
+Route::get('barang/create', [BarangController::class, 'create'])->name('barang.create');
+Route::get('barang/{barang}/edit', [BarangController::class, 'edit'])->name('barang.edit');
+Route::get('barang/{barang}', [BarangController::class, 'show'])->name('barang.show');
+Route::put('barang/{barang}', [BarangController::class, 'update'])->name('barang.update');
+Route::delete('barang/{barang}', [BarangController::class, 'destroy'])->name('barang.destroy');

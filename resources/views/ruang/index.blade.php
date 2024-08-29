@@ -30,7 +30,7 @@
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $ruangs->nama_ruang }}</td>
-                <td>{{ $ruangs->gedung_id }}</td>
+                <td>{{ $ruangs->gedung->gedung_id }}</td>
                 <td>{{ $ruangs->panjang }}</td>
                 <td>{{ $ruangs->lebar }}</td>
                 <td>{{ $ruangs->keterangan }}</td>

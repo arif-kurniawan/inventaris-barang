@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\RuangController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Route::resource('barang', BarangController::class);
+Route::resource('ruang', RuangController::class);
 
 Route::get('barang',[BarangController::class, 'index'])->name('barang.index');
 Route::post('barang', [BarangController::class, 'store'])->name('barang.store');

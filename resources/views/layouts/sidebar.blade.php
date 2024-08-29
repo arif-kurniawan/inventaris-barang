@@ -28,6 +28,11 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item @if (Route::is('jenisbarang.*')) active @endif">
+        <a class="nav-link" href="{{ route('jenisbarang.index') }}">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Jenis Barang</span>
+        </a>
     <li class="nav-item @if (Route::is('barang.*')) active @endif">
         <a class="nav-link" href="{{ route('barang.index') }}">
             <i class="fas fa-cubes"></i>

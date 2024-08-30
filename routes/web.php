@@ -46,5 +46,6 @@ Route::middleware('hak_akses:kepsek')->group(function () {
 
 Route::middleware('hak_akses:admin|staff|kepsek')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 });
 

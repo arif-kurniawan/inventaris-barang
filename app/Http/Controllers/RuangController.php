@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Barang;
 use App\Models\Ruang;
+use App\Models\Gedung;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -21,10 +21,11 @@ class RuangController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
         $ruang = Ruang::all();
-        return view('ruang.create', compact('ruang'));
+        $gedung = Gedung::all();
+        return view('ruang.create', compact('ruang','gedung'));
     }
 
     /**
@@ -58,7 +59,8 @@ class RuangController extends Controller
      */
     public function edit(Ruang $ruang)
     {
-        return view('ruang.edit', compact('ruang'));
+        $gedung = Gedung::all();
+        return view('ruang.edit', compact('ruang','gedung'));
     }
 
     /**

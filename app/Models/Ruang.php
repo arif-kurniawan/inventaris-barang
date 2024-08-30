@@ -14,4 +14,8 @@ class Ruang extends Model
     public function barang(){
         return $this->hasMany(Barang::class);
     }
+
+    public function gedung(){
+        return $this->belongsTo(Gedung::class);
+    }
 }

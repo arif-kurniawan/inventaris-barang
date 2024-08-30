@@ -3,6 +3,7 @@
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\JenisBarangController;
 use App\Http\Controllers\RuangController;
+use App\Http\Controllers\GedungController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('jenisbarang', JenisBarangController::class);
 Route::resource('ruang', RuangController::class);
+Route::resource('gedung', GedungController::class);
 
 Route::get('barang',[BarangController::class, 'index'])->name('barang.index');
 Route::post('barang', [BarangController::class, 'store'])->name('barang.store');

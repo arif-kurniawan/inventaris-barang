@@ -9,8 +9,16 @@
         <input type="text" name="nama_ruang" class="form-control" value="{{ $ruang->nama_ruang }}">
       </div>
       <div class="form-group col-md-2">
-        <label for="">Lokasi/Gedung</label>
-        <input type="number" name="gedung_id" class="form-control" value="{{ $ruang->gedung_id }}">
+        <label for="gedung_id">Lokasi/Gedung</label>
+        <select name="gedung_id">
+            @foreach($gedung as $gedungs)
+                <option value="{{ old('gedung',$gedungs->id) }}"
+                    @if ($ruang->gedung_id == $gedungs->id)
+                        selected                 
+                    @endif>
+                    {{ $gedungs->nama_gedung }}</option>
+            @endforeach
+        </select>
       </div>
     </div>
     <div class="form-row">

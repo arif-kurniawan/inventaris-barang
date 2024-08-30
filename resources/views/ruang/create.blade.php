@@ -8,8 +8,12 @@
         <input type="text" name="nama_ruang" class="form-control">
       </div>
       <div class="form-group col-md-2">
-        <label for="">Lokasi/Gedung</label>
-        <input type="number" name="gedung_id" class="form-control">
+        <label for="gedung_id">Lokasi/Gedung</label>
+        <select name="gedung_id">
+            @foreach($gedung as $gedungs)
+                <option value="{{ $gedungs->id }}" @if (old('gedung')) selected @endif>{{ $gedungs->nama_gedung }}</option>
+            @endforeach
+        </select>
       </div>
     </div>
     <div class="form-row">
@@ -28,22 +32,6 @@
             <input type="text" name="keterangan" class="form-control">
           </div>
     </div>
-    <!--div class="form-row">
-      <div class="form-group col-md-4">
-        <label for="">Ruang</label>
-        <select name="ruang_id" id="" class="form-control">
-          <option selected>Pilih...</option>
-            @foreach ($ruang as $ruangs )
-          <option value="{{ $ruangs->id }}">{{ $ruangs->nama_ruang }}</option>
-            @endforeach
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="">Gambar</label>
-        <input type="file" name="gambar" class="form-control">
-      </div>
-
-    </div-->
     <button type="submit" class="btn btn-success">Tambah Ruang</button>
   </form>
 @endsection

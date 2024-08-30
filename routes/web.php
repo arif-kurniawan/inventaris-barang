@@ -40,6 +40,16 @@ Route::resource('gedung', GedungController::class);
 
 });
 
+Route::middleware('hak_akses:staff')->group(function () {
+    Route::get('barang',[BarangController::class, 'index'])->name('barang.index');
+    Route::post('barang', [BarangController::class, 'store'])->name('barang.store');
+    Route::get('barang/create', [BarangController::class, 'create'])->name('barang.create');
+    Route::get('barang/{barang}/edit', [BarangController::class, 'edit'])->name('barang.edit');
+    Route::get('barang/{barang}', [BarangController::class, 'show'])->name('barang.show');
+    Route::put('barang/{barang}', [BarangController::class, 'update'])->name('barang.update');
+    Route::delete('barang/{barang}', [BarangController::class, 'destroy'])->name('barang.destroy');
+});
+
 Route::middleware('hak_akses:kepsek')->group(function () {
 
 });

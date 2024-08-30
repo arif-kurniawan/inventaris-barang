@@ -27,19 +27,21 @@
         Menu
     </div>
     @if (Auth::user()->hak_akses == 'admin')
+        <li class="nav-item @if (Route::is('gedung.*')) active @endif">
+            <a class="nav-link" href="{{ route('gedung.index') }}">
+                <i class="far fa-building"></i>
+                <span>Gedung</span>
+            </a>
+        </li>
+
         <li class="nav-item @if (Route::is('ruang.*')) active @endif">
-        <a class="nav-link" href="{{ route('ruang.index') }}">
+            <a class="nav-link" href="{{ route('ruang.index') }}">
                 <i class="far fa-building"></i>
                 <span>Ruang</span>
             </a>
         </li>
-        <li class="nav-item @if (Route::is('gedung.*')) active @endif">
-    <a class="nav-link" href="{{ route('gedung.index') }}">
-            <i class="far fa-building"></i>
-            <span>Gedung</span>
-        </a>
-    </li>
-    <li class="nav-item @if (Route::is('jenisbarang.*')) active @endif">
+
+        <li class="nav-item @if (Route::is('jenisbarang.*')) active @endif">
             <a class="nav-link" href="{{ route('jenisbarang.index') }}">
                 <i class="fab fa-intercom"></i>
                 <span>Jenis Barang</span>

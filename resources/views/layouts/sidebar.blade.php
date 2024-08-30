@@ -39,15 +39,6 @@
             <span>Gedung</span>
         </a>
     </li>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item @if (Route::is('ruang.*')) active @endif">
-    <a class="nav-link" href="{{ route('ruang.index') }}">
-            <i class="far fa-building"></i>
-            <span>Ruang</span>
-        </a>
-    </li>
-
     <li class="nav-item @if (Route::is('jenisbarang.*')) active @endif">
             <a class="nav-link" href="{{ route('jenisbarang.index') }}">
                 <i class="fab fa-intercom"></i>

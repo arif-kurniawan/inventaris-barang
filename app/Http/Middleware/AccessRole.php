@@ -13,8 +13,12 @@ class AccessRole
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next, $hak_akses): Response
     {
+        $hak_akses = explode('|', $hak_akses);
+        if (!in_array($request->user()->hak_akses, $hak_akses)) {
+            return redirect('home');
+        }
         return $next($request);
     }
 }

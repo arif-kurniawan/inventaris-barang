@@ -35,7 +35,7 @@
 
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                    {{-- <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
@@ -69,7 +69,7 @@
                                 </div>
                             </li>
                         @endguest
-                    </ul>
+                    </ul> --}}
                 </div>
             </div>
         </nav>

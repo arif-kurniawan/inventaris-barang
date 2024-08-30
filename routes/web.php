@@ -19,10 +19,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['register'=>false]);
 
 Route::middleware('hak_akses:admin')->group(function () {
 

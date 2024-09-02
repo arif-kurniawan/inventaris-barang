@@ -5,7 +5,7 @@
     <div class="form-row">
         <div class="form-group col-md-4">
           <label for="">Nama Barang</label>
-          <select name="jenis_barang_id" id="" class="form-control">
+          <select name="jenis_barang_id" id="jenis_barang_id" class="form-control">
             <option selected>Pilih...</option>
               @foreach ($jenisbarang as $jenis )
             <option value="{{ $jenis->id }}">{{ $jenis->jenis_barang }}</option>
@@ -16,7 +16,7 @@
     <div class="form-row">
         <div class="form-group col-md-6">
           <label for="">Kode Barang</label>
-          <input type="text" name="kode_barang" class="form-control">
+          <input type="text" id="kode_barang" name="kode_barang" class="form-control">
         </div>
       </div>
     <div class="form-row">
@@ -43,4 +43,21 @@
     </div>
     <button type="submit" class="btn btn-success">ADD Barang</button>
   </form>
+@endsection
+@section('script')
+<script>
+    $('#jenis_barang_id').on('change', function() {
+        var id = $(this).val();
+        $.ajax({
+            url: "{{ route('getkode') }}",
+            type: "GET",
+            data: {
+                id:id
+            },
+            success: function(data) {
+                $('#kode_barang').val(data?.kode_jenis?.kode_jenis?? '-')
+            }
+        });
+    })
+</script>
 @endsection

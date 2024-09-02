@@ -1,7 +1,17 @@
 @extends('layouts.content')
+
 @section('content')
 <form action="{{ route('jenisbarang.store') }}" id="myForm" method="POST" enctype="multipart/form-data" >
   @csrf
+  <div class="form-row">
+    <div class="form-group col-md-6">
+        <input type="hidden" name="kode_jenis" id="kode_jenis" value="">
+        <input type="text" id="nama_jenis" class="form-control"
+                    placeholder="Ketik nama barang" required />
+                <div id="barangList"></div>
+    
+    </div>
+  </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="">Nama Jenis Barang</label>
@@ -31,10 +41,9 @@
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      {{-- <div class="custom-file"> --}}
+      
         <input name="gambar" type="file" class="form-control" required>
-        {{-- <label class="custom-file-label" for="validatedInputGroupCustomFile">Choose file...</label>
-      </div> --}}
+        
     </div>
   </div>
   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#verifyModal">ADD Jenis Barang</button>
@@ -56,4 +65,42 @@
     </div>
   </div>
 </div>
+@endsection
+@section('script')
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $('#nama_jenis').keyup(function() {
+            var query = $(this).val();
+            console.log(query);
+
+            if (query != '') {
+                var _token = $('input[name="csrf-token"]').val();
+                $.ajax({
+                    url: '/autocomplete',
+                    method: "GET",
+                    data: {
+                        query: query,
+                        _token: _token
+                    },
+                    success: function(data) {
+                        $('#barangList').fadeIn();
+                        $('#barangList').html(data);
+                    }
+                });
+            }
+        });
+
+        $(document).on('click', 'li', function() {
+            $('#kode_jenis').val($(this).data('kode'));
+            $('#nama_jenis').val($(this).text());
+            $('#barangList').fadeOut();
+
+        });
+
+    });
+
+</script>
+
 @endsection

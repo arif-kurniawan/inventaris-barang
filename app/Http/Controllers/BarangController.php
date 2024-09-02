@@ -56,6 +56,10 @@ class BarangController extends Controller
         return view('barang.detail', compact('barang'));
     }
 
+    public function getkode(Request $request){
+        $jenisbarang = JenisBarang::with('kode_jenis')->find($request->id);
+        return response()->json($jenisbarang);
+    }
     /**
      * Show the form for editing the specified resource.
      */

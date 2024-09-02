@@ -47,6 +47,13 @@
                 <span>Jenis Barang</span>
             </a>
         </li>
+
+        <li class="nav-item @if (Route::is('user.*')) active @endif">
+            <a class="nav-link" href="{{ route('user.form') }}">
+                <i class="fas fa-users"></i>
+                <span>User</span>
+            </a>
+        </li>
     @endif
     @if (Auth::user()->hak_akses == 'admin' || Auth::user()->hak_akses == 'staff')
 

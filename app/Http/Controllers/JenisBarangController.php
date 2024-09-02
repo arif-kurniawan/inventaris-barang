@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\JenisBarang;
+use App\Models\kode_jenis_barang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class JenisBarangController extends Controller
 {
@@ -17,12 +19,33 @@ class JenisBarangController extends Controller
         return view('jenisbarang.index',compact('jbarang'));
     }
 
+    function autocomplete(Request $request)
+  {
+    if($request->get('query'))
+    {
+        $query = $request->get('query');
+        $data = DB::table('kode_jenis_barangs')
+        ->where('nama_jenis', 'LIKE', "%{$query}%")
+        ->get();
+        $output = '<ul class="dropdown-menu" style="display:block; position:relative">';
+        foreach($data as $row)
+        {
+        $output .= '
+        <li data-kode="'.$row->kode_jenis. '" >'.$row->nama_jenis.'</li>
+        ';
+        }
+        $output .= '</ul>';
+        echo $output;
+    }
+  }
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('jenisbarang.create');
+        $kode = kode_jenis_barang::all();
+        return view('jenisbarang.create',compact('kode'));
     }
 
     /**
@@ -31,6 +54,7 @@ class JenisBarangController extends Controller
     public function store(Request $request)
     {
         $validation = $request->validate([
+            'kode_jenis' => ['required'],
             'jenis_barang' => ['required','string','max:255'],
             'harga' => ['required','string','max:255'],
             'keterangan' => ['required','string'],

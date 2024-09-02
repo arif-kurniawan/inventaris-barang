@@ -4,6 +4,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\JenisBarangController;
 use App\Http\Controllers\RuangController;
 use App\Http\Controllers\GedungController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,10 +26,21 @@ Route::get('/', function () {
 Auth::routes(['register'=>false]);
 
 Route::middleware('hak_akses:admin')->group(function () {
+    Route::get('autocomplete', [JenisBarangController::class, 'autocomplete'])->name('autocomplete');
+
+    Route::get('user', [UserController::class, 'index'])->name('user.form');
+    Route::post('user', [UserController::class, 'store'])->name('user.store');
 
 Route::resource('jenisbarang', JenisBarangController::class);
 Route::resource('ruang', RuangController::class);
 Route::resource('gedung', GedungController::class);
+
+
+});
+
+Route::middleware('hak_akses:admin|staff')->group(function () {
+
+    Route::get('getkode', [barangController::class, 'getkode'])->name('getkode');
 
     Route::get('barang',[BarangController::class, 'index'])->name('barang.index');
     Route::post('barang', [BarangController::class, 'store'])->name('barang.store');
@@ -37,14 +49,12 @@ Route::resource('gedung', GedungController::class);
     Route::get('barang/{barang}', [BarangController::class, 'show'])->name('barang.show');
     Route::put('barang/{barang}', [BarangController::class, 'update'])->name('barang.update');
     Route::delete('barang/{barang}', [BarangController::class, 'destroy'])->name('barang.destroy');
-
-});
-
-Route::middleware('hak_akses:kepsek')->group(function () {
-
 });
 
 Route::middleware('hak_akses:admin|staff|kepsek')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
+    Route::get('profile', [UserController::class, 'profile'])->name('user.profile');
+    Route::post('profile', [UserController::class, 'update_profile'])->name('profile.update');
 });
 

@@ -35,7 +35,7 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         $validation = $request->validate([
-            'jenis_barang_id' => 'required|numeric|max:1',
+            'jenis_barang_id' => 'required|numeric|min:1',
             'kode_barang' => 'required | string | unique:barangs,kode_barang',
             'kondisi' => 'required|string',
             'ruang_id' => 'required | numeric | min:1'
@@ -56,10 +56,6 @@ class BarangController extends Controller
         return view('barang.detail', compact('barang'));
     }
 
-    public function getkode(Request $request){
-        $jenisbarang = JenisBarang::with('kode_jenis')->find($request->id);
-        return response()->json($jenisbarang);
-    }
     /**
      * Show the form for editing the specified resource.
      */
@@ -77,7 +73,7 @@ class BarangController extends Controller
     {
         //dd($request->all());
         $validation = $request->validate([
-            'jenis_barang_id' => 'required|numeric|max:1',
+            'jenis_barang_id' => 'required|numeric',
             'kode_barang' => 'required | string | unique:barangs,kode_barang,'.$barang->id,
             'kondisi' => 'required|string',
             'ruang_id' => 'required | numeric'

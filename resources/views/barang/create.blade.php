@@ -55,7 +55,7 @@
                 id:id
             },
             success: function(data) {
-                $('#kode_barang').val(data?.kode_jenis?.kode_jenis?? '-')
+                $('#kode_barang').val(data?.kode_jenis?.kode_jenis? data?.kode_jenis?.kode_jenis+'-':'-')
             }
         });
     })

@@ -15,6 +15,17 @@
               <input type="text" value="{{ old('harga', $jenisbarang->harga) }}" name="harga" class="form-control">
             </div>
       </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+        <label for="">Sumber Dana</label>
+          <select name="sumber_dana" id="sumber_dana" class="form-control">
+            <option selected>Pilih Sumber Dana</option>
+                @foreach ($sumber_dana as $sumber_danas)
+            <option value="{{ $sumber_danas->nama_sumber_dana }}">{{ $sumber_danas->nama_sumber_dana }}</option>
+              @endforeach
+          </select>
+        </div>
+      </div>
       <div class="form-row" >
       <div class="form-group col-md-6">
         <label for="">Keterangan</label>

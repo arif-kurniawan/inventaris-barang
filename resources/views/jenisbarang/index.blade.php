@@ -20,18 +20,20 @@
                 <th>Nama</th>
                 <th>Harga</th>
                 <th>Keterangan</th>
+                <th>Sumber Dana</th>
                 <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($jbarang as $barangs )
+            @foreach ($jbarang as $jbarangs )
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $barangs->jenis_barang }}</td>
-                <td>{{ 'Rp.'.$barangs->harga }}</td>
-                <td>{{ $barangs->keterangan }}</td>
+                <td>{{ $jbarangs->jenis_barang }}</td>
+                <td>{{ 'Rp.'.$jbarangs->harga }}</td>
+                <td>{{ $jbarangs->keterangan }}</td>
+                <td>{{ $jbarangs->sumber_dana }}</td>
                 <td style="width:5px" >
-                    <a href="{{ route('jenisbarang.show', $barangs->id) }}" class="btn btn-primary btn-circle btn-sm">
+                    <a href="{{ route('jenisbarang.show', $jbarangs->id) }}" class="btn btn-primary btn-circle btn-sm">
                         <i class="fas fa-info-circle"></i>
                     </a>
                 </td>

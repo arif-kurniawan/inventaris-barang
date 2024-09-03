@@ -18,8 +18,4 @@ class JenisBarang extends Model
     public function kode_jenis(){
         return $this->belongsTo(kode_jenis_barang::class, 'kode_jenis', 'kode_jenis');
     }
-
-    public function sumber_dana(){
-        return $this->belongsTo(SumberDana::class, 'sumber_dana', 'nama_sumber_dana');
-    }
 }

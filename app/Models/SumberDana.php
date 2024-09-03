@@ -11,7 +11,4 @@ class SumberDana extends Model
 
     protected $guarded = [];
 
-    public function jenis_barang(){
-        return $this->hasMany(JenisBarang::class);
-    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\JenisBarang;
 use App\Models\kode_jenis_barang;
+use App\Models\SumberDana;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
@@ -44,8 +45,9 @@ class JenisBarangController extends Controller
      */
     public function create()
     {
+        $sumber_dana = SumberDana::all();
         $kode = kode_jenis_barang::all();
-        return view('jenisbarang.create',compact('kode'));
+        return view('jenisbarang.create',compact('kode','sumber_dana'));
     }
 
     /**
@@ -57,6 +59,7 @@ class JenisBarangController extends Controller
             'kode_jenis' => ['required'],
             'jenis_barang' => ['required','string','max:255'],
             'harga' => ['required','string','max:255'],
+            'sumber_dana' => ['required','string','max:255'],
             'keterangan' => ['required','string'],
             'gambar' => ['required','mimes:jpeg,png,jpg|max:2048']
         ]);
@@ -80,7 +83,8 @@ class JenisBarangController extends Controller
      */
     public function edit(JenisBarang $jenisbarang)
     {
-        return view('jenisbarang.edit', compact('jenisbarang'));
+        $sumber_dana = SumberDana::all();
+        return view('jenisbarang.edit', compact('jenisbarang','sumber_dana'));
     }
 
     /**

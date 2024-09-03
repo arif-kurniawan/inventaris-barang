@@ -5,11 +5,11 @@
   @csrf
   <div class="form-row">
     <div class="form-group col-md-6">
-        <input type="hidden" name="kode_jenis" id="kode_jenis" value="">
+        <input type="text" class="form-control" name="kode_jenis" id="kode_jenis" value="" readonly>
         <input type="text" id="nama_jenis" class="form-control"
                     placeholder="Ketik nama barang" required />
                 <div id="barangList"></div>
-    
+
     </div>
   </div>
   <div class="form-row">
@@ -52,9 +52,9 @@
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      
+
         <input name="gambar" type="file" class="form-control" required>
-        
+
     </div>
   </div>
   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#verifyModal">ADD Jenis Barang</button>

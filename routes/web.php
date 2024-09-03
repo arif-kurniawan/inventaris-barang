@@ -4,6 +4,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\JenisBarangController;
 use App\Http\Controllers\RuangController;
 use App\Http\Controllers\GedungController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\SumberDanaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +41,7 @@ Route::resource('sumber_dana', SumberDanaController::class);
 });
 
 Route::middleware('hak_akses:admin|staff')->group(function () {
-
+    Route::get('cetak', [LaporanController::class, 'laporanruang'])->name('cetakruang');
     Route::get('getkode', [barangController::class, 'getkode'])->name('getkode');
 
     Route::get('barang',[BarangController::class, 'index'])->name('barang.index');

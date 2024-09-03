@@ -5,6 +5,7 @@
 
     <h1>Pencarian Ruang</h1>
     @csrf
+    <a href="{{ route('cetakruang') }}" target="_blank" ><button>Cetak</button></a>
         <form action="{{ route('search') }}" method="GET">
             <div class="input-group mb-3">
                 {{-- <input type="text" class="form-control" name="cari" placeholder="Masukkan nama ruang"> --}}

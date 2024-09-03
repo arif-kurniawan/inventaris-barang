@@ -4,8 +4,15 @@
 <div class="container">
 
     <h1>Pencarian Ruang</h1>
+    <div class="card shadow mb-4">
+        <div class="card-header py-2" >
+            <b>Cetak Barang Dalam Ruang</b><a href="{{ route('cetakruangbarang') }}" target="_blank" >
+                <button class="btn btn-warning" >Cetak</button>
+            </a>
+        </div>
+    </div>
     @csrf
-    <a href="{{ route('cetakruang') }}" target="_blank" ><button>Cetak</button></a>
+    <h6>Pilih Ruang- Untuk Cek Total Barang Dalam Ruang</h6>
         <form action="{{ route('search') }}" method="GET">
             <div class="input-group mb-3">
                 {{-- <input type="text" class="form-control" name="cari" placeholder="Masukkan nama ruang"> --}}

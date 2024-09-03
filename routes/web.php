@@ -42,6 +42,7 @@ Route::resource('sumber_dana', SumberDanaController::class);
 
 Route::middleware('hak_akses:admin|staff')->group(function () {
     Route::get('cetak', [LaporanController::class, 'laporanruang'])->name('cetakruang');
+    Route::get('cetakrb', [LaporanController::class, 'laporanbarangruang'])->name('cetakruangbarang');
     Route::get('getkode', [barangController::class, 'getkode'])->name('getkode');
 
     Route::get('barang',[BarangController::class, 'index'])->name('barang.index');

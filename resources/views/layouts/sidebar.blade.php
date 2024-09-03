@@ -27,6 +27,12 @@
         Menu
     </div>
     @if (Auth::user()->hak_akses == 'admin')
+        <li class="nav-item @if (Route::is('sumber_dana.*')) active @endif">
+            <a class="nav-link" href="{{ route('sumber_dana.index') }}">
+                <i class="fas fa-money-bill-wave"></i>
+                <span>Sumber Dana</span>
+            </a>
+        </li>
         <li class="nav-item @if (Route::is('gedung.*')) active @endif">
             <a class="nav-link" href="{{ route('gedung.index') }}">
                 <i class="far fa-building"></i>

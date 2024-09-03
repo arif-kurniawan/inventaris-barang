@@ -4,6 +4,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\JenisBarangController;
 use App\Http\Controllers\RuangController;
 use App\Http\Controllers\GedungController;
+use App\Http\Controllers\SumberDanaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -34,7 +35,7 @@ Route::middleware('hak_akses:admin')->group(function () {
 Route::resource('jenisbarang', JenisBarangController::class);
 Route::resource('ruang', RuangController::class);
 Route::resource('gedung', GedungController::class);
-
+Route::resource('sumber_dana', SumberDanaController::class);
 
 });
 

@@ -6,9 +6,10 @@ use App\Models\Ruang as ModelsRuang;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\FromArray;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class ruang implements FromArray, WithHeadings
+class ruang implements FromArray, WithHeadings, ShouldAutoSize
 {
     public function array(): array
     {

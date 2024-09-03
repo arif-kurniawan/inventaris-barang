@@ -2,33 +2,29 @@
 
 namespace App\Http\Export;
 
-use App\Models\Ruang as ModelsRuang;
+use App\Models\JenisBarang as ModelsJenisBarang;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\FromArray;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class barangdruang implements FromArray, WithHeadings, ShouldAutoSize
+class jenisbarang implements FromArray, WithHeadings, ShouldAutoSize
 {
     public function array(): array
     {
-        $data = DB::table('barangs')->where('ruang_id', '!=', null)
-        ->join('ruangs', 'barangs.ruang_id', '=', 'ruangs.id')
-        ->join('jenis_barangs', 'barangs.jenis_barang_id', '=', 'jenis_barangs.id')
-        ->select('ruangs.nama_ruang', 'jenis_barangs.jenis_barang', DB::raw('count(barangs.id) as total'))
-        ->groupBy('ruangs.nama_ruang', 'jenis_barangs.jenis_barang')
-        ->get();
+        $data = ModelsJenisBarang::all();
         $results = [];
         $i = 0;
         foreach ($data as $key => $value) {
         $i++;
         $result = [];
         $result[] = $i;
-        $result[] = $value->nama_ruang;
         $result[] = $value->jenis_barang;
-        $result[] = $value->total;
-
+        $result[] = $value->kode_jenis;
+        $result[] = $value->harga;
+        $result[] = $value->keterangan;
+        $result[] = $value->sumber_dana;
         $results[] = $result;
         }
 
@@ -40,8 +36,10 @@ class barangdruang implements FromArray, WithHeadings, ShouldAutoSize
         return [
             'NO',
             'NAMA RUANG',
-            'JENIS BARANG',
-            'JUMLAH BARANG'
+            'KODE BARANG',
+            'HARGA',
+            'KETERANGAN',
+            'SUMBER DANA',
         ];
     }
 }

@@ -6,6 +6,7 @@ use App\Models\Barang;
 use App\Models\JenisBarang;
 use App\Models\Ruang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class BarangController extends Controller
@@ -19,6 +20,25 @@ class BarangController extends Controller
         return view('barang.index', compact('barang'));
     }
 
+    function autocomplete(Request $request)
+  {
+    if($request->get('query'))
+    {
+        $query = $request->get('query');
+        $data = DB::table('jenis_barangs')
+        ->where('jenis_barang', 'LIKE', "%{$query}%")
+        ->get();
+        $output = '<ul class="dropdown-menu" style="display:block; position:relative">';
+        foreach($data as $row)
+        {
+        $output .= '
+        <li data-kode="'.$row->id. '">'.$row->jenis_barang.'</li>
+        ';
+        }
+        $output .= '</ul>';
+        echo $output;
+    }
+  }
     /**
      * Show the form for creating a new resource.
      */

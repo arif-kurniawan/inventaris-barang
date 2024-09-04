@@ -44,7 +44,8 @@ Route::middleware('hak_akses:admin|staff')->group(function () {
     Route::get('cetak', [LaporanController::class, 'laporanruang'])->name('cetakruang');
     Route::get('cetakrb', [LaporanController::class, 'laporanbarangruang'])->name('cetakruangbarang');
     Route::get('cetakjb', [LaporanController::class, 'jenisbarang'])->name('cetakjenisbarang');
-    Route::get('getkode', [barangController::class, 'getkode'])->name('getkode');
+    Route::get('autocompletebarang', [BarangController::class, 'autocomplete'])->name('autocompletebarang');
+    Route::get('getkode', [BarangController::class, 'getkode'])->name('getkode');
 
     Route::get('barang',[BarangController::class, 'index'])->name('barang.index');
     Route::post('barang', [BarangController::class, 'store'])->name('barang.store');

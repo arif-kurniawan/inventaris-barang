@@ -41,7 +41,7 @@
         </span>
         @enderror
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-auto">
                 <input name="foto" type="file" class="form-control" required>
             </div>
           </div>

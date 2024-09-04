@@ -60,5 +60,6 @@ Route::middleware('hak_akses:admin|staff|kepsek')->group(function () {
     Route::get('search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
     Route::get('profile', [UserController::class, 'profile'])->name('user.profile');
     Route::post('profile', [UserController::class, 'update_profile'])->name('profile.update');
+    Route::get('kondisibarang', [LaporanController::class, 'laporankondisi'])->name('cetak_kondisibarang');
 });
 

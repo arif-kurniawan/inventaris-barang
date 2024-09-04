@@ -7,7 +7,7 @@
     <div class="card shadow mb-2">
         <div class="card-header py-2" >
             <b class="font-weight-bold text-primary mr-2" >Cetak Jumlah Barang Dalam Ruang</b><a href="{{ route('cetakruangbarang') }}" target="_blank" >
-                <button class="btn btn-warning" >Cetak</button>
+                <button class="btn btn-success" >Cetak</button>
             </a>
         </div>
     </div>
@@ -22,7 +22,7 @@
                             <option value="{{ $data->nama_ruang }}">{{ $data->nama_ruang }}</option>
                         @endforeach
                     </select>
-                    <button class="btn btn-warning m-2 " type="submit" >Cetak</button>
+                    <button class="btn btn-success m-2" type="submit" >Cetak</button>
                 </form>
                 </div>
         </div>

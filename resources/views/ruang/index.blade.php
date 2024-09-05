@@ -11,11 +11,6 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Daftar Ruang</h6>
         </div>
-        <div class="card shadow mb-4">
-            <div class="card-header py-3" >
-                <b>Cetak Table Ruang</b><a href="{{ route('cetakruang') }}" target="_blank" ><button class="btn btn-warning" >Cetak</button></a>
-            </div>
-        </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

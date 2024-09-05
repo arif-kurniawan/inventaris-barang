@@ -5,6 +5,7 @@ use App\Http\Controllers\JenisBarangController;
 use App\Http\Controllers\RuangController;
 use App\Http\Controllers\GedungController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\SumberDanaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -25,6 +26,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('coba', [PDFController::class, 'PDFcoba'])->name('coba');
+
 Auth::routes(['register'=>false]);
 
 Route::middleware('hak_akses:admin')->group(function () {
@@ -41,9 +44,15 @@ Route::resource('sumber_dana', SumberDanaController::class);
 });
 
 Route::middleware('hak_akses:admin|staff')->group(function () {
+    //PDF
+    Route::post('cetak', [PDFController::class, 'caricetak'])->name('caricetak');
+    Route::get('karturuang', [PDFController::class, 'index'])->name('karturuang');
+    Route::get('pdfkartu', [PDFController::class, 'PDFkarturuang'])->name('pdfkarturuang');
+    //Excel
     Route::get('cetak', [LaporanController::class, 'laporanruang'])->name('cetakruang');
     Route::get('cetakrb', [LaporanController::class, 'laporanbarangruang'])->name('cetakruangbarang');
     Route::get('cetakjb', [LaporanController::class, 'jenisbarang'])->name('cetakjenisbarang');
+    //autocomplete
     Route::get('autocompletebarang', [BarangController::class, 'autocomplete'])->name('autocompletebarang');
     Route::get('getkode', [BarangController::class, 'getkode'])->name('getkode');
 

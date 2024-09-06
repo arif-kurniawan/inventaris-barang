@@ -49,10 +49,10 @@
         </tr>
         <tr>
             <td class="bg-danger" style="text-align: center">
-                <h4>{{ $data->ruang->nama_ruang }}</h4>
+                <h4 style="color: #fff" >{{ $data->ruang->nama_ruang }}</h4>
             </td>
             <td colspan="2" class="bg-secondary" style="text-align: center">
-                <h4>{{ $data->jenisbarang->keterangan }}</h4>
+                <h4 style="color: #fff" >{{ $data->jenisbarang->keterangan }}</h4>
             </td>
         </tr>
         <!-- Empty Row for Spacing -->

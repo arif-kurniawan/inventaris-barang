@@ -25,10 +25,10 @@
                     </div>
                     <div class="card shadow mb-4">
                         <div class="card-header py-2 " >
-                            <div class="input-group" >
-                                <b class="font-weight-bold text-primary mr-5" >Kondisi Barang Berdasarkan Ruang</b>
+                            <div class="input-group d-flex justify-content-between " >
+                                <b class="font-weight-bold text-primary" >Kondisi Barang Berdasarkan Ruang</b>
                                 <form action="{{ route('cetak_kondisibarang') }}" method="GET">
-                                    <select name="cari" class="custom-select" aria-placeholder="Pilih Ruang">
+                                    <select name="cari" class="custom-select" style="width: 50%" aria-placeholder="Pilih Ruang">
                                         <option value="">Pilih Ruang</option>
                                         @foreach ($daftar as $data)
                                             <option value="{{ $data->nama_ruang }}">{{ $data->nama_ruang }}</option>

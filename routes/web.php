@@ -46,7 +46,8 @@ Route::resource('sumber_dana', SumberDanaController::class);
 Route::middleware('hak_akses:admin|staff')->group(function () {
     //PDF
     Route::post('cetak', [PDFController::class, 'caricetak'])->name('caricetak');
-    Route::get('karturuang', [PDFController::class, 'index'])->name('karturuang');
+    Route::get('karturuang', [PDFController::class, 'indexpdf'])->name('karturuang');
+    Route::get('excel', [PDFController::class, 'indexexcel'])->name('excel');
     Route::get('pdfkartu', [PDFController::class, 'PDFkarturuang'])->name('pdfkarturuang');
     //Excel
     Route::get('cetak', [LaporanController::class, 'laporanruang'])->name('cetakruang');

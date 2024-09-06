@@ -4,29 +4,7 @@
 <div class="container">
 
     <h1>Pencarian Ruang</h1>
-    <div class="card shadow mb-2">
-        <div class="card-header py-2" >
-            <b class="font-weight-bold text-primary mr-2" >Cetak Jumlah Barang Dalam Ruang</b><a href="{{ route('cetakruangbarang') }}" target="_blank" >
-                <button class="btn btn-success" >Cetak</button>
-            </a>
-        </div>
-    </div>
-    <div class="card shadow mb-4">
-        <div class="card-header py-2" >
-            <div class="input-group" >
-                <b class="font-weight-bold text-primary mr-2" >Cetak Kondisi Barang Dalam Ruang</b>
-                <form action="{{ route('cetak_kondisibarang') }}" method="GET">
-                    <select name="cari" class="custom-select" aria-placeholder="Pilih Ruang">
-                        <option value="">Pilih Ruang</option>
-                        @foreach ($daftar as $data)
-                            <option value="{{ $data->nama_ruang }}">{{ $data->nama_ruang }}</option>
-                        @endforeach
-                    </select>
-                    <button class="btn btn-success m-2" type="submit" >Cetak</button>
-                </form>
-                </div>
-        </div>
-    </div>
+    
     @csrf
     <h6>Pilih Ruang- Untuk Cek Kondisi Barang Dalam Ruang</h6>
         <form action="{{ route('search') }}" method="GET">

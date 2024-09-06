@@ -12,11 +12,17 @@ use PhpOffice\PhpSpreadsheet\Calculation\MathTrig\Sum;
 
 class PDFController extends Controller
 {
-    public function index(){
+    public function indexpdf(){
         $ruang = Ruang::all();
         $sumber = SumberDana::latest()->get();
         return view('PDF.karturuang',compact('ruang','sumber'));
     }
+
+    public function indexexcel(){
+        $daftar = Ruang::all();
+        return view('PDF.excel', compact('daftar'));
+    }
+
     public function PDFkarturuang(){
         $barang = Barang::with('ruang','jenisbarang')->whereHas('jenisbarang',function($q)
         {$q->whereNotNull('sumber_dana');})
@@ -33,7 +39,7 @@ class PDFController extends Controller
         {$q->whereNotNull('sumber_dana');})
         ->orderBy('id','desc')
         ->get();
-        return view('PDF.pdfruang', compact('barang'));
+        return view('PDF.pdfkarturuang', compact('barang'));
     }
 
     public function caricetak(Request $request){
